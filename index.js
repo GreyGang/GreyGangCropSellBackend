@@ -15,6 +15,7 @@ app.use(cors());
 app.get("/", (req, res) => {
   res.json({
     message: "GREY GANG BACKEND",
+    ip_address: req.connection.remoteAddress,
   });
 });
 
