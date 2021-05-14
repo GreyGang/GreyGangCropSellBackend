@@ -1,9 +1,15 @@
 const { Router } = require("express");
-const { SIGNUP, LOGIN, GET_USER } = require("../controllers/authControllers");
+const {
+  SIGN_UP,
+  LOGIN,
+  GET_USER,
+  AUTH,
+} = require("../Controllers/AuthController");
 const router = Router();
-const auth = require("../middleware/auth");
+const auth = require("../Middleware/Auth");
 
-router.post("/register", SIGNUP);
+router.get("/", AUTH);
+router.post("/register", SIGN_UP);
 router.post("/login", LOGIN);
 router.get("/user", auth, GET_USER);
 

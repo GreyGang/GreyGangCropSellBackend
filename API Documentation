@@ -1,0 +1,9 @@
+API DOCUMENTATION
+___________________
+
+"/"  : welcome and show ip address
+"/auth" : show message that we are in auth route
+"/auth/register" : sign up route
+"/auth/login"  : login route
+"/auth/user" : information about logged user
+ 
