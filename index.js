@@ -12,12 +12,16 @@ app.use(express.json());
 
 app.use(cors());
 
+require("./Models/User");
+
 app.get("/", (req, res) => {
   res.json({
     message: "GREY GANG BACKEND",
     ip_address: req.connection.remoteAddress,
   });
 });
+
+app.use("/auth", require("./Routes/Auth"));
 
 const port = process.env.PORT || 4200;
 
