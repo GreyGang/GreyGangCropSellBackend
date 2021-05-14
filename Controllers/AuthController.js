@@ -4,16 +4,16 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
 module.exports.SIGN_UP = (req, res) => {
-  const { name, email, password } = req.body;
+  const { fname, lname, email, password } = req.body;
 
-  if (!name || !email || !password) {
+  if (!fname || !lname || !email || !password) {
     res.status(400).json({ msg: "Please enter all fields" });
   }
 
   User.findOne({ email }).then((user) => {
     if (user) return res.status(400).json({ msg: "User already exists" });
 
-    const newUser = new User({ name, email, password });
+    const newUser = new User({ fname, lname, email, password });
 
     bcrypt.genSalt(10, (err, salt) => {
       if (err) throw err;
@@ -31,7 +31,7 @@ module.exports.SIGN_UP = (req, res) => {
                 token,
                 user: {
                   id: user._id,
-                  name: user.name,
+                  fname: user.fname,
                   email: user.email,
                 },
               });
@@ -64,7 +64,7 @@ module.exports.LOGIN = async (req, res) => {
             token,
             user: {
               id: user._id,
-              name: user.name,
+              fname: user.fname,
               email: user.email,
             },
           });
