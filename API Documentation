@@ -1,9 +1,12 @@
 API DOCUMENTATION
 ___________________
 
+GET ROUTES
 "/"  : welcome and show ip address
 "/auth" : show message that we are in auth route
+"/auth/user" : information about logged user
+
+POST ROUTES
 "/auth/register" : sign up route
 "/auth/login"  : login route
-"/auth/user" : information about logged user
- 
+"/items/newItem" : post items    NOTE :- it will work only locally due to limited space in server
