@@ -24,9 +24,11 @@
     "cors": "^2.8.5",
     "dotenv": "^9.0.0",
     "express": "^4.17.1",
+    "formidable": "^1.2.2",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.12.7",
     "passport": "^0.4.1",
+    "unique-string": "^2.0.0",
     "uuid": "^8.3.2",
     "validator": "^13.6.0"
   },

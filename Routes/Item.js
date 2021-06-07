@@ -4,12 +4,13 @@ const {
   POST_ITEM,
   UPDATE_ITEM,
   DELETE_ITEM,
-} = require("../controllers/itemControllers");
+} = require("../Controllers/ItemController");
+const auth = require("../Middleware/Auth");
 const router = Router();
 
-router.get("/items", GET_ITEM);
-router.post("/items", POST_ITEM);
-router.put("/items/:id", UPDATE_ITEM);
-router.delete("/items/:id", DELETE_ITEM);
+router.get("/getItem", GET_ITEM);
+router.post("/newItem", auth, POST_ITEM);
+router.put("/updateItem/:id", auth, UPDATE_ITEM);
+router.delete("/deleteItem/:id", auth, DELETE_ITEM);
 
 module.exports = router;

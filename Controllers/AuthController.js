@@ -24,7 +24,7 @@ module.exports.SIGN_UP = (req, res) => {
           jwt.sign(
             { id: user._id },
             process.env.JWT_SECRET,
-            { expiresIn: 3600 },
+            { expiresIn: 36000 },
             (err, token) => {
               if (err) throw err;
               res.json({
@@ -57,7 +57,7 @@ module.exports.LOGIN = async (req, res) => {
       jwt.sign(
         { id: user._id },
         process.env.JWT_SECRET,
-        { expiresIn: 3600 },
+        { expiresIn: 36000 },
         (err, token) => {
           if (err) throw err;
           res.json({

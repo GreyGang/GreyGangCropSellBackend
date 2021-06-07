@@ -10,9 +10,8 @@ function auth(req, res, next) {
 
   try {
     const token = authorization.replace("Bearer ", "");
-    console.log(token);
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    req.user = decoded;
+    req.user = { id: decoded.id };
     next();
   } catch (e) {
     res.status(400).json({ msg: "Token is not valid" });
