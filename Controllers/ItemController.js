@@ -7,7 +7,12 @@ const path = require("path");
 const formidable = require("formidable");
 const uniqueString = require("unique-string");
 
-module.exports.GET_ITEM = (req, res) => {};
+module.exports.GET_ITEM = async (req, res) => {
+  Item.find()
+    .sort({ register_date: -1 })
+    .then((items) => res.json(items))
+    .catch((err) => res.send(err));
+};
 module.exports.POST_ITEM = (req, res) => {
   const form = new formidable.IncomingForm();
   form.parse(req, function (err, fields, files) {
