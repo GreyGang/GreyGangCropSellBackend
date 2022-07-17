@@ -51,5 +51,22 @@ module.exports.POST_ITEM = (req, res) => {
       });
   });
 };
-module.exports.UPDATE_ITEM = (req, res) => {};
-module.exports.DELETE_ITEM = (req, res) => {};
+
+module.exports.UPDATE_ITEM = (req, res) => {
+  Item.findOneAndUpdate({ _id: req.params.id }, { $set: req.body }).exec(
+    function (err, Item) {
+      if (err) {
+        res.status(500).send(err);
+      } else {
+        res.status(200).send(Item);
+      }
+    }
+  );
+  
+};
+
+module.exports.DELETE_ITEM = (req, res) => {
+  Item.findByIdAndDelete({ _id: req.params.id }).then(function (item) {
+    res.json({ success: true });
+  });
+};
